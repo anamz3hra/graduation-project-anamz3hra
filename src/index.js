@@ -1,1 +1,5 @@
-console.log("Hi coyote, let's have some JavaScript fun!")
+const User = require('./classes/user')
+
+const user = new User('anam', 'anamzehra@gmail.com')
+
+console.log(user)
