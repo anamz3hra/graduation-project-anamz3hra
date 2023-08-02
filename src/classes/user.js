@@ -9,7 +9,7 @@ module.exports = class User {
     this.tasks.push(task)
   }
 
-  getTask() {
+  getTasks() {
     return this.tasks
   }
 }
