@@ -8,4 +8,10 @@ module.exports = class Task {
   complete() {
     this.status = 'Completed'
   }
+
+  update(title, description, status) {
+    this.title = title
+    this.description = description
+    if (status) this.status = status
+  }
 }
