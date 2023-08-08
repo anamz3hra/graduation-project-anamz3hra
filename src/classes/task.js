@@ -1,8 +1,9 @@
 module.exports = class Task {
-  constructor(title, description) {
+  constructor(title, description, deadline) {
     this.title = title
     this.description = description
     this.status = 'Pending'
+    this.deadline = deadline
   }
 
   complete() {
