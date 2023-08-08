@@ -1,7 +1,7 @@
 module.exports = class User {
-  constructor(name, email) {
+  constructor(name) {
+    //removed email parameter because we will use it for authentication
     this.name = name
-    this.email = email
     this.tasks = []
   }
 
@@ -9,7 +9,7 @@ module.exports = class User {
     this.tasks.push(task)
   }
 
-  getTasks() {
-    return this.tasks
+  deleteTask(task) {
+    this.tasks.filter(element => element.title !== task.title)
   }
 }
