@@ -13,15 +13,27 @@ module.exports = class User {
   }
 
   deleteTask(task) {
-    this.tasks.filter(element => element.title !== task.title)
+    this.task = this.tasks.filter(element => element.title !== task.title)
   }
 
   completeTask(task) {
     task.status = 'Completed'
   }
 
+  updateTask(task, title, description, status) {
+    task.title = title
+    task.description = description
+    if (status) task.status = status
+  }
+
   createTask(title, description, deadline) {
     const newTask = new Task(title, description, deadline)
     this.tasks.push(newTask)
   }
+
+  addDeadline(task, deadline) {
+    task.deadline = deadline
+  }
 }
+
+//Create functionality to add deadlines to tasks
