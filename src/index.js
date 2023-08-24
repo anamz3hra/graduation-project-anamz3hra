@@ -14,37 +14,43 @@ anam.addTask(task3)
 
 const newTask = anam.createTask('JS101', 'javascript basics', '16.08.2023')
 
-//Create functionality to add deadlines to tasks
-
-//title, description, status, deadline
-
-//console.log(task1.deadline)
-//expected output = date
-//The deadline is displayed along with the task
-
 //Goal: create a task management app for people with ADHD
+
 //User stories:
-//  users should be able to create task
-//  user should be able to delete task
-//  user should be able to mark task as completed
-//  user should be able to update task
-//  user should be able to add deadlines to task
-//  user should be able to see all tasks
-//  user should be able to see all tasks that are completed
-//  user should be able to see all tasks that are in progress
-//  user should be able to assign other users to tasks
-//  user should be able to remove other users from tasks
+//Users should be able to create an account, login, and logout
+//Users should be able to delete their account
+//Users should be able to see all tasks assigned to them
+//Only users who are assigned tasks can see the tasks assigned to them
+//Users can create tasks, delete tasks, update tasks, set deadlines, and mark tasks as completed
+//users can add other users to tasks, as well as assign other users to those tasks. Users can also remove other users from tasks.
+//Users can see all tasks, all tasks that are completed, all tasks that are in progress. all tasks that are pending, and all tasks that are high priority.
+//Users can categorize tasks into "elephant tasks"(tasks that are large in both time required and complexity), "rabbit tasks"(tasks that are smaller in time required and complexity), and projects.
+//Users can filter tasks by status, priority, and category.
+//
 
-//authentication:
-// user should be able to create an account
-// user should be able to login
-// user should be able to logout
-// user should be able to delete account
+//I need two objects: User and Tasks, and a way to connect them.
+//User object:
+//  properties: name, email, tasks
+//  methods: addTask, deleteTask, completeTask, updateTask, addDeadline, seeAllTasks, seeCompletedTasks, seeInProgressTasks, seePendingTasks, assignUserToTask, removeUserFromTask
+//Task object:
+//  properties: title, description, status, deadline, assignedUsers
+//  methods: updateStatus, updateDeadline, addAssignedUser, removeAssignedUser
+//  status: completed, in progress, pending
+//  priority: high, medium, low
+//  category: elephant task, rabbit task, project
+//  filter by status, priority, category, deadline, assigned user, title, description
+//  sort by status, priority, category, deadline, assigned user, title, description
+//  search by title, description, assigned user
 
-// user should be able to see all tasks assigned to them
-// only users who are assigned tasks can see the tasks assigned to them
-
-//user should be able to mark tasks as high priority
-//user should be able to categorize tasks into "elephant tasks", "rabbit tasks", and projects
-//user should be able to filter tasks by status, priority, and category
-//user should be able to see all tasks that are high priority
+//later on:
+//  add subtasks to task
+//  add tags to task
+//  add comments to task
+//  add files to task
+//  add links to task
+//  add reminders to task
+//  add recurring tasks
+//  add pomodoro timer to task
+//  add time tracking to task
+// add time blocking to task
+// add calendar to task

@@ -8,7 +8,7 @@ module.exports = class User {
   }
 
   addTask(task) {
-    //TODO change task parameter to an array later on
+    //TODO change task parameter to an array of tasks
     this.tasks.push(task)
   }
 

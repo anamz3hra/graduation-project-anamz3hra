@@ -15,6 +15,5 @@ module.exports = class Task {
     this.description = description
     if (status) this.status = status
   }
+  //add task deletion functionatlity
 }
-
-//add task deletion functionatlity
