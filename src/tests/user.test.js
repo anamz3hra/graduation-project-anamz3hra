@@ -3,15 +3,15 @@ const Task = require('../models/task')
 
 //tests:
 //write test to check if user is able to create a task
-console.log(`Anam just created the following task: ${task1.title}`)
+console.log(`${anam.name} has created a new task: ${newTask.title}`)
 
 //write test to check if user is able to delete a task
 anam.deleteTask(task3)
-console.log(`Task ${task3.title} has been deleted`)
+console.log(`Task ${anam.task[2].title} has been deleted`)
 
 //write test to check if user is able to mark a task as completed
 anam.completeTask(task1)
-console.log(`Task ${task1.title} has been completed`)
+console.log(`Task ${anam.task[0].title} has been marked as ${anam.task[0].status}`)
 //expected output = [Task { title: 'Daily kata', description: 'Do 1 kata in JS Fundamentals', status: 'Completed' }
 
 //write test to check if user is able to update a task
