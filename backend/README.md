@@ -1,4 +1,5 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=11442693)
+
 # Coyotiv School of Software Engineering
 
 ## Node & PlantUML Starter Template
@@ -64,7 +65,7 @@ _Now that we are ready, let's have some coding fun!_
 
 ## MIT License
 
-Copyright (c) 2022 Coyotiv
+Copyright (c)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
