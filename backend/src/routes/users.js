@@ -4,11 +4,16 @@ var router = express.Router()
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  //TODO remove the hardcoded users list
-  const peter = new User('peter')
-  const shairru = new User('shairru')
-  const usersList = [peter, shairru]
-  res.send(usersList)
+  res.send(User.list)
+})
+
+//create a route to create a user
+router.post('/', function (req, res) {
+  //console.log(req.body)
+  const user = new User(req.body.name)
+  User.list.push(user)
+  user.addTask(req.body.tasks)
+  res.send(user)
 })
 
 module.exports = router

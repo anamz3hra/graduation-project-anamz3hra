@@ -12,6 +12,10 @@ module.exports = class User {
     this.tasks.push(task)
   }
 
+  addTasks(tasks) {
+    this.tasks = [...this.tasks, ...tasks]
+  }
+
   deleteTask(task) {
     this.task = this.tasks.filter(element => element.title !== task.title)
   }
@@ -34,6 +38,8 @@ module.exports = class User {
   addDeadline(task, deadline) {
     task.deadline = deadline
   }
+
+  static list = []
 }
 
 //Create functionality to add deadlines to tasks
