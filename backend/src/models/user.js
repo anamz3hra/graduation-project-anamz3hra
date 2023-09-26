@@ -1,13 +1,33 @@
 const mongoose = require('mongoose');
-
+const passportLocalMongoose = require('passport-local-mongoose');
 const Task = require('./task');
 
 const userSchema = new mongoose.Schema({
-  name: String,
-  // email: String,
-  // password: String,
-  // tasks: [Task.schema]
+  username: {
+    type: String,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+  },
 });
+
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: 'email',
+  usernameLowerCase: true,
+  passwordValidator: (password, cb) => {
+    if (password.length < 8) {
+      return cb('Password must be at least 8 characters');
+    }
+    return cb();
+  },
+});
+
+//tasks: [Task.schema]
 class User {
   addTask(task) {
     // TODO change task parameter to an array of tasks
