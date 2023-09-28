@@ -8,6 +8,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const MongoStore = require('connect-mongo');
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -26,11 +28,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+const clientPromise = mongoose.connection.asPromise().then(connection => (connection = connection.getClient()));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({ clientPromise, stringify: false }),
   })
 );
 app.use(express.static(path.join(__dirname, 'public')));
