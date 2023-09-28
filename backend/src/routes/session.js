@@ -1,20 +1,25 @@
 const express = require('express');
 const passport = require('passport');
 const User = require('../models/user');
+const { reset } = require('nodemon');
 const router = express.Router();
 
 //create register functionality for user
-router.post('/register', (req, res, next) => {
-  const { email, password } = req.body;
-  User.register({ email }, password, (err, user) => {
+
+router.post('/register', (req, res) => {
+  const { email, username, password } = req.body;
+  const newUser = new User({
+    username: username,
+    email: email,
+  });
+  User.register(newUser, password, (err, user) => {
     if (err) {
       return res.json({ user, err });
+    } else {
+      passport.authenticate('local')(req, res, () => {
+        return res.json({ user: user });
+      });
     }
-    user.username = req.body.username;
-    user.save();
-    passport.authenticate('local')(req, res, () => {
-      res.json({ user });
-    });
   });
 });
 
