@@ -23,12 +23,14 @@ router.post('/', async function (req, res) {
   res.send(user);
 });
 
-// \users\<id>
+// GET: /users/<id> - shows a specific user
+router.get('/:id', (req, res) => {
+  res.send('requests ID' + req.params.id);
+});
 
-// GET - Shows user with <id></id>
-
-/* GET users listing. */
-
-// create a route to create a user
+// GET: /users/<id>/tasks - shows all tasks for a specific user
+router.get('/:id/tasks', (req, res) => {
+  res.send('requests ID' + req.params.id);
+});
 
 module.exports = router;

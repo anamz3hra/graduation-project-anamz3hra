@@ -3,7 +3,7 @@ const passport = require('passport');
 const User = require('../models/user');
 const router = express.Router();
 
-// GET /session/new
+//create register functionality for user
 router.post('/register', (req, res, next) => {
   const { email, password } = req.body;
   User.register({ email }, password, (err, user) => {
@@ -16,6 +16,23 @@ router.post('/register', (req, res, next) => {
       res.json({ user });
     });
   });
+});
+
+// POST to session/ with email and password.
+// router.post('/', passport.authenticate('local', { failWithError: true }), function (req, res) {
+//     res.send(req.user);
+//   });
+
+//create login functionality for user
+//POST: /session/login
+router.post('/login', (req, res, next) => {
+  res.send('not implemented yet');
+});
+
+//create logout functionality for user
+//GET: /session/logout
+router.get('/logout', (req, res, next) => {
+  res.send('not implemented yet');
 });
 
 module.exports = router;

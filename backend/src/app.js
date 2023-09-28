@@ -45,4 +45,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+//enable express to handle sessions
+//configure passport.js
+
 module.exports = app;
