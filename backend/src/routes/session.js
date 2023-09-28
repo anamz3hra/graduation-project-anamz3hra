@@ -23,21 +23,23 @@ router.post('/register', (req, res) => {
   });
 });
 
-// POST to session/ with email and password.
-// router.post('/', passport.authenticate('local', { failWithError: true }), function (req, res) {
-//     res.send(req.user);
-//   });
-
 //create login functionality for user
 //POST: /session/login
-router.post('/login', (req, res, next) => {
-  res.send('not implemented yet');
+
+router.post('/login', passport.authenticate('local', { failWithError: true }), (req, res, next) => {
+  res.send(req.user);
 });
 
 //create logout functionality for user
 //GET: /session/logout
-router.get('/logout', (req, res, next) => {
-  res.send('not implemented yet');
+router.get('/logout', (req, res) => {
+  req.logout(() => {
+    res.sendStatus(200); // Successful logout
+  });
+});
+
+router.get('/', (req, res) => {
+  res.send(req.user);
 });
 
 module.exports = router;

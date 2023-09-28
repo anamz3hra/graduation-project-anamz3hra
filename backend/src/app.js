@@ -7,11 +7,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
+const passport = require('passport');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const tasksRouter = require('./routes/tasks');
 const sessionRouter = require('./routes/session');
+const User = require('./models/user');
+const router = require('./routes/session');
 
 const app = express();
 
@@ -31,6 +34,13 @@ app.use(
   })
 );
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
+app.use(passport.session());
+
+//passport config
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
